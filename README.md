@@ -52,7 +52,7 @@ To get a local copy up and running follow these simple example steps.
  4) Open the folder with your code editor
  5) Now You can edit the code and check the changes in the browser using Live Server
 
-### Install
+  ### Install
 
  ### Web-pack Setup
 
