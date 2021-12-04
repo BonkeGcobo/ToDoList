@@ -1,5 +1,5 @@
 import './style.css';
-import ToDo from './helper';
+import ToDo from './helper.js';
 
 const defaultList = ['Attend Stand Up', 'Meet coding partner', 'Attend Stand up meeting'];
 
@@ -41,4 +41,3 @@ listCheckboxes.forEach((element) => {
     localStorage.setItem('todoList', JSON.stringify(ToDo.list));
   });
 });
-

@@ -1,5 +1,5 @@
 export default class ToDo {
-    static list = []; //Static lost
+    static list = []; // Static lost
 
     constructor(description, complete = false) {
       this.description = description;
