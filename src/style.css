@@ -59,3 +59,14 @@
 .box {
   border-style: none;
 }
+
+.container {
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  box-shadow: 10px 10px 10px 10px #B3B4B7;
+}
+
+.CleanDone {
+  margin-top: 1rem;
+}
