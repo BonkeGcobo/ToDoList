@@ -44,6 +44,7 @@
 
 .List-Task {
   margin-top: 1rem;
+  list-style: none;
 }
 
 .label {
@@ -69,4 +70,13 @@
 
 .CleanDone {
   margin-top: 1rem;
+}
+
+.form {
+  padding: 10px;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: grey;
 }
