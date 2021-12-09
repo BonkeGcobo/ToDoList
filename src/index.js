@@ -9,7 +9,7 @@ if (list) {
 }
 
 // Add
-const addBtn= document.querySelector('.arrow-btn');
+const addBtn = document.querySelector('.arrow-btn');
 
 addBtn.addEventListener('click', addItem);
 

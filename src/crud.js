@@ -7,7 +7,7 @@ export function populateList() {
   todoList.innerHTML = '';
   console.log('What a problem');
   ToDo.list.forEach((item) => {
-    console.log("We here");  
+    console.log('We here');
     const listItem = document.createElement('li');
     listItem.setAttribute('id', item.index);
     listItem.classList = 'item-container';
@@ -18,7 +18,7 @@ export function populateList() {
     <textarea class="text-area" maxlength="30">${item.description}</textarea>
     <img class="cancel-btn" src="${DeleteButton}">
     `;
-    
+
     todoList.appendChild(listItem);
 
     const checkbox = listItem.querySelector('input');
@@ -82,15 +82,15 @@ export function populateList() {
 
 // Add functionality
 export function addItem() {
-    console.log('Yipee'); 
-    const inputValue = document.querySelector('.addList').value;
-    const newItem = new ToDo(inputValue, false);
+  console.log('Yipee');
+  const inputValue = document.querySelector('.addList').value;
+  const newItem = new ToDo(inputValue, false);
 
-    // Update local storage
-    localStorage.setItem('todoList', JSON.stringify(newItem.getList()));
+  // Update local storage
+  localStorage.setItem('todoList', JSON.stringify(newItem.getList()));
 
-    // Update UI
-    populateList();
+  // Update UI
+  populateList();
 }
 
 // Clear completed functionality
