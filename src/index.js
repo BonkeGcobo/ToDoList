@@ -1,7 +1,7 @@
 import './style.css';
 import ToDo from './state.js';
 
-const defaultList = ['Eat Dinner', 'Code', 'Meditate'];
+const defaultList = ['Attend morning standup', 'Meet with learning partner', 'Attend stand up meeting'];
 
 // Add items to UI
 function populateList() {

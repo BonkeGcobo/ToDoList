@@ -33,8 +33,9 @@
 .CleanDone {
   text-align: center;
   background-color: #f8f9fa;
-  margin-top: -1rem;
   padding: 1rem;
+  margin-top: 1rem;
+
 }
 
 .anchor {
@@ -65,11 +66,7 @@
   width: 50%;
   margin: auto;
   margin-top: 5%;
-  box-shadow: 10px 10px 10px 10px #B3B4B7;
-}
-
-.CleanDone {
-  margin-top: 1rem;
+  box-shadow: 10px 10px 10px 10px #b3b4b7;
 }
 
 .form {
