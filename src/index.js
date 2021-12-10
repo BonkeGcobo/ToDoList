@@ -1,43 +1,22 @@
 import './style.css';
+import { addItem, deleteAllCompleted, populateList } from './crud.js';
 import ToDo from './state.js';
-
-const defaultList = ['Attend morning standup', 'Meet with learning partner', 'Attend stand up meeting'];
-
-// Add items to UI
-function populateList() {
-  const todoList = document.querySelector('.List-Task');
-
-  ToDo.list.forEach((item) => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `
-    <input id="${item.index}" class="checkbox" type="checkbox">
-    <span>${item.description}</span>
-    `;
-    todoList.appendChild(listItem);
-    if (item.complete) {
-      listItem.querySelector('input').checked = true;
-      listItem.querySelector('span').classList = 'complete';
-    }
-  });
-}
 
 // Window load
 const list = JSON.parse(localStorage.getItem('todoList'));
 if (list) {
   list.forEach((item) => new ToDo(item.description, item.complete));
-} else {
-  defaultList.forEach((item) => new ToDo(item, false));
 }
 
-populateList();
+// Add
+const addBtn = document.querySelector('.arrow-btn');
 
-// Add event listener to checkboxes
-const listCheckboxes = [...document.getElementsByClassName('checkbox')];
-listCheckboxes.forEach((element) => {
-  element.addEventListener('change', () => {
-    const index = parseInt(element.id, 10);
-    ToDo.list[index].update();
-    element.nextElementSibling.classList.toggle('complete');
-    localStorage.setItem('todoList', JSON.stringify(ToDo.list));
-  });
-});
+addBtn.addEventListener('click', addItem);
+
+// Delete all completed
+const clearButton = document.querySelector('.CleanDone');
+clearButton.addEventListener('click', deleteAllCompleted);
+
+// Populate UI
+
+populateList();
