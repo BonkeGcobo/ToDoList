@@ -33,8 +33,8 @@
 .CleanDone {
   text-align: center;
   background-color: #f8f9fa;
-  margin-top: -1rem;
   padding: 1rem;
+  margin-top: 1rem;
 }
 
 .anchor {
@@ -44,6 +44,7 @@
 
 .List-Task {
   margin-top: 1rem;
+  list-style: none;
 }
 
 .label {
@@ -58,4 +59,20 @@
 
 .box {
   border-style: none;
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  box-shadow: 10px 10px 10px 10px #b3b4b7;
+}
+
+.form {
+  padding: 10px;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: grey;
 }

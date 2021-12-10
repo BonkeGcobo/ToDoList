@@ -1,30 +1,43 @@
 import './style.css';
+import ToDo from './state.js';
 
-const taskList = document.querySelector('.List-Task');
-const toDoList = [{
-  index: 1,
-  description: 'Attend the morning standUp',
-  completed: false,
-},
-{
-  index: 0,
-  description: 'Meeting with learning partner',
-  completed: false,
-},
-];
+const defaultList = ['Attend morning standup', 'Meet with learning partner', 'Attend stand up meeting'];
 
-toDoList.sort((a, b) => a.index - b.index);
+// Add items to UI
+function populateList() {
+  const todoList = document.querySelector('.List-Task');
 
-window.onload = () => {
-  toDoList.forEach((item) => {
-    const listVal = `<div class="toDo">
-    <div class="FirstTwo">
-      <input class="box" type="checkbox" id=${item.index} name="toDo#1">
-      <label class="label" for="toDo#1">${item.description}</label><br>
-    </div>
-    <span id="icon" class="material-icons move-icon">more_vert</span>
-  </div>
-  <hr>`;
-    taskList.insertAdjacentHTML('beforeend', listVal);
+  ToDo.list.forEach((item) => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+    <input id="${item.index}" class="checkbox" type="checkbox">
+    <span>${item.description}</span>
+    `;
+    todoList.appendChild(listItem);
+    if (item.complete) {
+      listItem.querySelector('input').checked = true;
+      listItem.querySelector('span').classList = 'complete';
+    }
   });
-};
+}
+
+// Window load
+const list = JSON.parse(localStorage.getItem('todoList'));
+if (list) {
+  list.forEach((item) => new ToDo(item.description, item.complete));
+} else {
+  defaultList.forEach((item) => new ToDo(item, false));
+}
+
+populateList();
+
+// Add event listener to checkboxes
+const listCheckboxes = [...document.getElementsByClassName('checkbox')];
+listCheckboxes.forEach((element) => {
+  element.addEventListener('change', () => {
+    const index = parseInt(element.id, 10);
+    ToDo.list[index].update();
+    element.nextElementSibling.classList.toggle('complete');
+    localStorage.setItem('todoList', JSON.stringify(ToDo.list));
+  });
+});
