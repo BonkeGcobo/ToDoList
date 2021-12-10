@@ -4,7 +4,7 @@
 
 > In this project we are asked to do a To do List, what will be used during this project, we will setUp the webpack and use ES6 to complete the project.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./Todo.png)
 
 Additional description about the project and its features.
 
